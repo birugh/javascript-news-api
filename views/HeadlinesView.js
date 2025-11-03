@@ -3,17 +3,17 @@ export class PostView {
         this.container = document.querySelector(containerSelector);
     }
 
-    render(itemsSources) {
+    render(itemsHeadlines) {
         if (!this.container) return;
 
-        if (!itemsSources || itemsSources.length === 0) {
+        if (!itemsHeadlines || itemsHeadlines.length === 0) {
             this.container.innerHTML = `
                 <p>Tidak ada isi data</p>
             `;
             return;
         }
 
-        this.container.innerHTML = itemsSources.map(sources => `
+        this.container.innerHTML = itemsHeadlines.map(headline => `
             // TODO
         `).join('');
     }

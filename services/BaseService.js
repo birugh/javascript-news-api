@@ -3,45 +3,62 @@ export class BaseService {
         this.baseUrl = baseUrl;
     }
 
-    async get(endpoint, params = {}) {
+    async get(endpoint, option = {}) {
         try {
-            const query = new URLSearchParams(params).toString();
-            const url = query ? `${this.baseUrl}/${endpoint}/?${query}` : `${this.baseUrl}/${endpoint}`;
+            const { headers, method = 'GET', params } = option;
+            const query = params ? '?' + new URLSearchParams(params).toString() : '';
+            const url = params ? `${this.baseUrl}/${endpoint}${query}` : `${this.baseUrl}/${endpoint}`;
 
-            const res = await fetch(url)
-
-            if (!res.ok) {
-                throw new Error(`HTTP Error: ${res.status}`)
-            }
-
-            return res.json();
-        } catch (error) {
-            console.error(`Error message: ${error.message}`);
-            return { error:true, message: error.message};
-        }
-    }
-
-    async getById(endpoint, id) {
-        try {
-            const res = await fetch(`${this.baseUrl}/${endpoint}/${id}`)
-            if (!res.ok) {
-                throw new Error(`HTTP Error: ${res.status}`)
-            }
-
-
-            return res.json();
-        } catch (error) {
-            console.error(`Error message: ${error.message}`);
-            return { error:true, message: error.message};
-        }
-    }
-
-    async create(endpoint, body) {
-        try {
-            const res = await fetch(`${this.baseUrl}/${endpoint}`, {
-                method: 'POST',
+            const res = await fetch(url, {
+                method,
                 headers: {
-                    'Content-type': 'application/json; charset=UTF-8',
+                    ...(headers || {}),
+                },
+                
+            });
+
+            if (!res.ok) {
+                throw new Error(`HTTP Error: ${res.status}`)
+            }
+
+            return res.json();
+        } catch (error) {
+            console.error(`Error message: ${error.message}`);
+            return { error: true, message: error.message };
+        }
+    }
+
+    async getById(endpoint, id, option = {}) {
+        try {
+            const { headers, method = 'GET' } = option;
+            const url = `${this.baseUrl}/${endpoint}/${id}`;
+
+            const res = await fetch(url, {
+                method,
+                headers: {
+                    ...(headers || {}),
+                },
+            })
+            if (!res.ok) {
+                throw new Error(`HTTP Error: ${res.status}`)
+            }
+
+            return res.json();
+        } catch (error) {
+            console.error(`Error message: ${error.message}`);
+            return { error: true, message: error.message };
+        }
+    }
+
+    async create(endpoint, option = {}) {
+        try {
+            const { headers, method = 'GET', body = {} } = option;
+            const url = `${this.baseUrl}/${endpoint}`;
+
+            const res = await fetch(url, {
+                method,
+                headers: {
+                    ...(headers || {}),
                 },
                 body: JSON.stringify(body),
             });
@@ -53,7 +70,7 @@ export class BaseService {
             return res.json();
         } catch (error) {
             console.error(`Error message: ${error.message}`);
-            return { error:true, message: error.message};
+            return { error: true, message: error.message };
         }
     }
 
@@ -99,19 +116,18 @@ export class BaseService {
     //     }
     // }
 
-    async update(endpoint, method = 'PUT', body = {}) {
+    async update(endpoint, id, option = {}) {
         try {
-            
-            const url = `${this.baseUrl}/${endpoint}/${body.id}`;
-            const option = {
-                method: method,
+            const { headers, method = 'PUT' } = option;
+            const url = `${this.baseUrl}/${endpoint}/${id}`;
+
+            const res = await fetch(url, {
+                method,
                 headers: {
-                    'Content-type': 'application/json; charset=UTF-8',
+                    ...(headers || {}),
                 },
                 body: JSON.stringify(body),
-            }
-
-            const res = await fetch(url, option);
+            });
 
             if (!res.ok) {
                 throw new Error(`HTTP Error: ${res.status}`)
@@ -120,14 +136,20 @@ export class BaseService {
             return res.json();
         } catch (error) {
             console.error(`Error message: ${error.message}`);
-            return { error:true, message: error.message};
+            return { error: true, message: error.message };
         }
     }
 
-    async delete(endpoint, id) {
+    async delete(endpoint, id, option = {}) {
         try {
+            const { headers, method = 'DELETE' } = option;
+            const url = `${this.baseUrl}/${endpoint}/${id}`;
+
             const res = await fetch(`${this.baseUrl}/${endpoint}/${id}`, {
-                method: 'DELETE',
+                method,
+                headers: {
+                    ...(headers || {}),
+                },
             });
 
             if (!res.ok) {
@@ -137,15 +159,22 @@ export class BaseService {
             return { success: true };
         } catch (error) {
             console.error(`Error message: ${error.message}`);
-            return { error:true, message: error.message};
+            return { error: true, message: error.message };
         }
     }
 
-    async getFilter(endpoint, id, childEndpoint) {
+    async getFilter(endpoint, id, childEndpoint, option = {}) {
         try {
+            const { headers, method = 'GET' } = option;
             const url = `${this.baseUrl}/${endpoint}/${id}/${childEndpoint}`;
-            const res = await fetch(url)
-
+            
+            const res = await fetch(url, {
+                method,
+                headers: {
+                    ...(headers || {}),
+                },
+            })
+            
             if (!res.ok) {
                 throw new Error(`HTTP Error: ${res.status}`)
             }
@@ -153,25 +182,26 @@ export class BaseService {
             return res.json();
         } catch (error) {
             console.error(`Error message: ${error.message}`);
-            return { error:true, message: error.message};
+            return { error: true, message: error.message };
         }
     }
+    
+    // async getNestedParams(endpoint, option = {}) {
+    //     try {
+    //         const { headers, method = 'GET', params = {}} = option;
+    //         const query = new URLSearchParams(params).toString();
+    //         const url = `${this.baseUrl}/${endpoint}?${query}&`;
 
-    async getNestedParams(endpoint, params = {}) {
-        try {
-            const query = new URLSearchParams(params).toString();
-            const url = `${this.baseUrl}/${endpoint}/?${query}`;
+    //         const res = await fetch(url);
 
-            const res = await fetch(url)
+    //         if (!res.ok) {
+    //             throw new Error(`HTTP Error: ${res.status}`)
+    //         }
 
-            if (!res.ok) {
-                throw new Error(`HTTP Error: ${res.status}`)
-            }
-
-            return res.json();
-        } catch (error) {
-            console.error(`Error message: ${error.message}`);
-            return { error:true, message: error.message};
-        }
-    }
+    //         return res.json();
+    //     } catch (error) {
+    //         console.error(`Error message: ${error.message}`);
+    //         return { error: true, message: error.message };
+    //     }
+    // }
 }
