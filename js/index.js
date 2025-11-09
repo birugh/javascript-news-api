@@ -1,14 +1,11 @@
-// import { EverythingService } from "../services/EverythingService.js";
+import { HeroController } from "../controllers/HeroController.js";
 
-// const everything = new EverythingService
+document.addEventListener("DOMContentLoaded", () => {
+  const hero = new HeroController("#hero");
+  hero.init();
+});
 
-// const response = await everything.getEverything({
-//     q: 'technology',
-//     language: 'en',
-//     sortBy: 'publishedAt',
-// });
 
-// console.log(response);
 const menu = document.getElementById('menu-navbar');
 
 window.addEventListener('scroll', function () {

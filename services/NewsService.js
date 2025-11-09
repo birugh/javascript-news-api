@@ -1,7 +1,7 @@
 import { BaseService } from "./BaseService.js";
 import { CONFIG } from "../config/env.js";
 
-export class EverythingService extends BaseService {
+export class NewsService extends BaseService {
     constructor(apiKey = CONFIG.API_KEY) {
         super(CONFIG.BASE_URL)
         this.apiKey = apiKey;
