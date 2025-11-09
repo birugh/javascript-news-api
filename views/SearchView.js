@@ -4,7 +4,7 @@ export class SearchView {
     this.container = document.querySelector(containerSelector);
   }
 
-  render(articles, query) {
+  render(articles, query, pagination = {}) {
     if (!this.container) return;
 
     if (!articles || articles.length === 0) {
@@ -13,6 +13,8 @@ export class SearchView {
       `;
       return;
     }
+
+    const totalPages = pagination.totalResults ? Math.ceil(pagination.totalResults / pagination.pageSize) : 1;
 
     this.container.innerHTML = `
       ${articles
@@ -31,6 +33,13 @@ export class SearchView {
           `
         )
       .join("")}
+      ${pagination.page ? `
+        <div class="pagination dp-flex content-center items-center g-2 mt-4">
+          <button id="prev-btn" class="btn btn--secondary" ${pagination.page === 1 ? 'disabled' : ''}>Prev</button>
+          <span>Page ${pagination.page} of ${totalPages}</span>
+          <button id="next-btn" class="btn btn--primary" ${pagination.page >= totalPages ? 'disabled' : ''}>Next</button>
+        </div>
+      ` : ''}
     `;
   }
 

@@ -24,4 +24,13 @@ document.addEventListener('DOMContentLoaded', () => {
     
     const search = new SearchController("#search-results", "#search-form");
     search.init();
+
+    // Handle pagination buttons
+    document.addEventListener('click', (e) => {
+        if (e.target.id === 'prev-btn') {
+            search.handlePagination('prev');
+        } else if (e.target.id === 'next-btn') {
+            search.handlePagination('next');
+        }
+    });
 });
