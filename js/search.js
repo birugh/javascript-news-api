@@ -3,11 +3,19 @@ document.addEventListener('DOMContentLoaded', () => {
     const sidebarClose = document.querySelector('.sidebar-toggle');
     const searchSidebar = document.getElementById('search-sidebar');
 
-    sidebarToggle.addEventListener('click', () => {
+    sidebarToggle.addEventListener('click', (e) => {
+        e.stopPropagation();
         searchSidebar.classList.toggle('active');
     });
 
     sidebarClose.addEventListener('click', () => {
         searchSidebar.classList.remove('active');
+    });
+
+    document.addEventListener('click', (e) => {
+        const isClickInside = searchSidebar.contains(e.target) || sidebarToggle.contains(e.target);
+        if (!isClickInside) {
+            searchSidebar.classList.remove('active');
+        }
     });
 });
