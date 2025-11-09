@@ -1286,6 +1286,14 @@
     text-align: center;
 }
 
+.text-start {
+    text-align: start;
+}
+
+.text-end {
+    text-align: end;
+}
+
 .content-start {
     justify-content: flex-start;
 }
@@ -1324,4 +1332,36 @@
 
 .dr-column {
     flex-direction: column;
+}
+
+.w-full {
+    width: 100%;
+}
+
+.h-full {
+    height: 100%;
+}
+
+.bg-black {
+    background-color: var(--black);
+}
+
+.bg-white {
+    background-color: var(--white);
+}
+
+.color-black {
+    color: var(--off_black);
+}
+
+.color-white {
+    color: var(--white);
+}
+
+.color-calligraphy {
+    color: var(--calligraphy);
+}
+
+.no-pd {
+    padding: 0;
 }

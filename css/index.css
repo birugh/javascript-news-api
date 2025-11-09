@@ -1,0 +1,110 @@
+/* ! Hero Section */
+#hero {
+    background-color: var(--black);
+    padding: 128px 0;
+}
+
+#hero h2 {
+    font-size: 24px;
+    font-weight: 100;
+    color: white;
+}
+
+#hero p,
+#hero span {
+    color: var(--tangled_web);
+}
+
+/* ! ABC News */
+#abc-news {
+    margin: 128px 0;
+}
+
+.abc__title {
+    margin-bottom: 32px;
+}
+
+.abc__article h2 {
+    margin: 32px 0 12px;
+    font-size: 24px;
+}
+
+.abc__article p {
+    margin-bottom: 32px;
+}
+
+
+
+/* ! Categories */
+#news-category {
+    margin: 128px 0;
+}
+
+.lastest__news h2 {
+    margin-bottom: 32px;
+}
+
+.lastest__news h3 {
+    font-size: 58px;
+}
+
+.lastest__news p {
+    line-height: 1.6;
+}
+
+.lastest__news p::first-letter {
+    font-size: 52px;
+    /* float: left; */
+    line-height: 1;
+    margin-right: 4px;
+    font-weight: 500;
+    color: var(--off_black);
+}
+
+.lastest__news {
+    margin: 128px 0;
+}
+
+.news__category--selected img {
+    margin: 24px 0;
+}
+
+.news__category--selected h2 {
+    font-size: 32px;
+}
+
+.news__category--others h3 {
+    font-size: 24px;
+
+}
+
+/* ! Source */
+#news-source {
+    margin: 128px 0;
+}
+
+#news-source h2 {
+    margin: 24px 0;
+}
+
+.source__items h3 {
+    font-size: 24px;
+}
+
+/* ! Footer Section */
+
+footer {
+    padding: 42px 0;
+}
+
+.footer__contact {
+    padding: 12px 18px;
+}
+
+.footer__information a {
+    color: var(--calligraphy);
+}
+
+footer h2 {
+    color: white;
+}

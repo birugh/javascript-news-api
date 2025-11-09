@@ -20,6 +20,7 @@
     <link rel="stylesheet" href="css/animation.css">
     <link rel="stylesheet" href="css/index.css">
     <link rel="stylesheet" href="css/resp.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
     <link rel="apple-touch-icon" sizes="57x57" href="assets/favicon/apple-icon-57x57.png">
     <link rel="apple-touch-icon" sizes="60x60" href="assets/favicon/apple-icon-60x60.png">
     <link rel="apple-touch-icon" sizes="72x72" href="assets/favicon/apple-icon-72x72.png">
@@ -40,39 +41,61 @@
 </head>
 
 <body>
-    <header>
-        <div class="container-wide">
+    <header id="navbar">
+        <div class="container-fluid">
             <nav class="grid-row no-gutter content-between items-center">
-                <div class="col-2 col-lg-6">
+                <div class="col-2">
                     <div class="nav__logo dp-flex">
-                        <img src="assets/planar-logo.svg" alt="">
+                        <a href="#hero">
+                            <strong>NewsBridge</strong>
+                        </a>
                     </div>
                 </div>
-                <div class="col-6 col-xxl-9 dp-lg-none">
+                <div class="col-8 dp-md-none">
                     <div class="nav__content">
                         <div class="dp-flex content-center">
-                            <a class="btn" href="#">Lorem</a>
-                            <a class="btn" href="#">Lorem</a>
-                            <a class="btn" href="#">Lorem</a>
-                            <a class="btn" href="#">Lorem</a>
-                            <a class="btn" href="#">Lorem</a>
+                            <a class="btn btn--white" href="#hero">Top News</a>
+                            <a class="btn btn--white" href="#abc-news">ABC News</a>
+                            <a class="btn btn--white" href="#news-category">Category</a>
+                            <a class="btn btn--white" href="#news-source">Sources</a>
+                            <a class="btn btn--white" href="javascript:;">Search</a>
                         </div>
                     </div>
                 </div>
-                <div class="col-4 dp-xxl-none">
+                <div class="col-2 dp-lg-none">
                     <div class="nav__cta">
                         <div class="dp-flex content-end g-2">
-                            <a class="btn btn--secondary" href="javascript:;">Log in</a>
-                            <a class="btn btn--primary btn--primary--arrow" href="javascript:;">Start it for free</a>
+                            <div class="cta__guest">
+                                <a class="btn btn--secondary" href="javascript:;">Log in</a>
+                            </div>
+                            <div class="cta__user dp-none">
+                                <span class="mr-1">Biru</span>
+                                <i class="fa-solid fa-user color-white" id="icon-profile"></i>
+                            </div>
                         </div>
                     </div>
                 </div>
-                <div class="col-6 col-xxl-1 dp-none dp-xxl-flex content-end">
+                <div class="col-2 dp-none dp-lg-flex content-end">
                     <div class="nav__mobile">
-                        <div class="hamburger__menu dp-flex dr-column content-between">
+                        <div class="hamburger__menu dp-flex dr-column content-between" id="hamburger-nav">
                             <span class="menu__linear"></span>
                             <span class="menu__linear"></span>
                             <span class="menu__linear"></span>
+                        </div>
+                        <div class="menu__content active bg-black g-2" id="menu-navbar">
+                            <div class="menu__secondary dp-flex dr-column items-end g-2">
+                                <div class="menu__secondary dp-none dp-xxl-flex dr-column items-end g-2">
+                                    <a class="btn btn--secondary" href="javascript:;">Log in</a>
+                                </div>
+                                <div class="seperator--horizontal mbt-2"></div>
+                                <div class="menu__primary dp-none dp-md-flex dr-column items-end g-2">
+                                    <a class="btn btn--white" href="#hero">Top News</a>
+                                    <a class="btn btn--white" href="#abc-news">ABC News</a>
+                                    <a class="btn btn--white" href="#news-category">Category</a>
+                                    <a class="btn btn--white" href="#news-source">Sources</a>
+                                    <a class="btn btn--white" href="javascript:;">Search</a>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -81,11 +104,475 @@
     </header>
 
     <main>
-        
+        <section id="hero">
+            <div class="container-fluid">
+                <article class="grid-row">
+                    <div class="col-8">
+                        <div class="hero__article--main">
+                            <div class="grid-row">
+                                <div class="col-6">
+                                    <div class="hero__wrapper dp-flex dr-column content-between h-full">
+                                        <div class="hero__main">
+                                            <h1 class="mb-4">Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                                                Temporibus, eius!
+                                            </h1>
+                                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Est error
+                                                aliquam
+                                                eaque enim! Iure inventore sed, illo eligendi nihil, officiis laboriosam
+                                                nisi ex voluptatum voluptas expedita animi. Ipsa, at labore.</p>
+                                        </div>
+                                        <ul class="info__list dp-flex dr-row content-start g-2">
+                                            <li>Lorem</li>
+                                            <li class="seperator--vertical"></li>
+                                            <li>Ipsum</li>
+                                            <li class="seperator--vertical"></li>
+                                            <li>Dolor</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="col-6">
+                                    <img src="https://placehold.co/500x850" alt="">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-4">
+                        <div class="hero__article--list dp-flex dr-column g-2 content-between">
+                            <div class="hero__article--items dp-flex g-2">
+                                <img src="https://placehold.co/180x200" alt="">
+                                <div class="dp-flex dr-column content-between pbt-2">
+                                    <ul class="info__list dp-flex dr-row content-start g-2">
+                                        <li>Lorem</li>
+                                        <li class="seperator--vertical"></li>
+                                        <li>Ipsum</li>
+                                    </ul>
+                                    <h2>Lorem ipsum dolor sit amet consectetur, adipisicing elit.</h2>
+                                    <span>Lorem ipsum dolor sit amet.</span>
+                                </div>
+                            </div>
+                            <div class="hero__article--items dp-flex g-2">
+                                <img src="https://placehold.co/180x200" alt="">
+                                <div class="dp-flex dr-column content-between pbt-2">
+                                    <ul class="info__list dp-flex dr-row content-start g-2">
+                                        <li>Lorem</li>
+                                        <li class="seperator--vertical"></li>
+                                        <li>Ipsum</li>
+                                    </ul>
+                                    <h2>Lorem ipsum dolor sit amet consectetur, adipisicing elit.</h2>
+                                    <span>Lorem ipsum dolor sit amet.</span>
+                                </div>
+                            </div>
+                            <div class="hero__article--items dp-flex g-2">
+                                <img src="https://placehold.co/180x200" alt="">
+                                <div class="dp-flex dr-column content-between pbt-2">
+                                    <ul class="info__list dp-flex dr-row content-start g-2">
+                                        <li>Lorem</li>
+                                        <li class="seperator--vertical"></li>
+                                        <li>Ipsum</li>
+                                    </ul>
+                                    <h2>Lorem ipsum dolor sit amet consectetur, adipisicing elit.</h2>
+                                    <span>Lorem ipsum dolor sit amet.</span>
+                                </div>
+                            </div>
+                            <div class="hero__article--items dp-flex g-2">
+                                <img src="https://placehold.co/180x200" alt="">
+                                <div class="dp-flex dr-column content-between pbt-2">
+                                    <ul class="info__list dp-flex dr-row content-start g-2">
+                                        <li>Lorem</li>
+                                        <li class="seperator--vertical"></li>
+                                        <li>Ipsum</li>
+                                    </ul>
+                                    <h2>Lorem ipsum dolor sit amet consectetur, adipisicing elit.</h2>
+                                    <span>Lorem ipsum dolor sit amet.</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12">
+                        <div class="seperator--horizontal"></div>
+                    </div>
+                    <div class="col-12">
+                        <div class="hero__article--others dp-flex dr-row g-4">
+                            <div class="hero__article--items dp-flex dr-column content-between">
+                                <ul class="info__list dp-flex dr-row content-start g-2">
+                                    <li>Lorem</li>
+                                    <li class="seperator--vertical"></li>
+                                    <li>Ipsum</li>
+                                    <li class="seperator--vertical"></li>
+                                    <li>Dolor</li>
+                                </ul>
+                                <h2>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Fugit, ullam.</h2>
+                                <span>Lorem ipsum dolor sit amet.</span>
+                            </div>
+                            <div class="hero__article--items dp-flex dr-column content-between">
+                                <ul class="info__list dp-flex dr-row content-start g-2">
+                                    <li>Lorem</li>
+                                    <li class="seperator--vertical"></li>
+                                    <li>Ipsum</li>
+                                    <li class="seperator--vertical"></li>
+                                    <li>Dolor</li>
+                                </ul>
+                                <h2>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Fugit, ullam.</h2>
+                                <span>Lorem ipsum dolor sit amet.</span>
+                            </div>
+                            <div class="hero__article--items dp-flex dr-column content-between">
+                                <ul class="info__list dp-flex dr-row content-start g-2">
+                                    <li>Lorem</li>
+                                    <li class="seperator--vertical"></li>
+                                    <li>Ipsum</li>
+                                    <li class="seperator--vertical"></li>
+                                    <li>Dolor</li>
+                                </ul>
+                                <h2>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Fugit, ullam.</h2>
+                                <span>Lorem ipsum dolor sit amet.</span>
+                            </div>
+                            <div class="hero__article--items dp-flex dr-column content-between g-2">
+                                <ul class="info__list dp-flex dr-row content-start g-2">
+                                    <li>Lorem</li>
+                                    <li class="seperator--vertical"></li>
+                                    <li>Ipsum</li>
+                                    <li class="seperator--vertical"></li>
+                                    <li>Dolor</li>
+                                </ul>
+                                <h2>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Fugit, ullam.</h2>
+                                <span>Lorem ipsum dolor sit amet.</span>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <section id="abc-news">
+            <div class="container-fluid">
+                <h2 class="abc__title">ABC-News</h2>
+                <article class="grid-row">
+                    <div class="col-3">
+                        <div class="abc__article dp-flex dr-column">
+                            <img src="https://placehold.co/240x320" alt="" class="h-100">
+                            <h2>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Fugit, ullam.</h2>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Est error
+                                aliquam
+                                eaque enim! Iure inventore sed, illo eligendi nihil, officiis laboriosam
+                                nisi ex voluptatum voluptas expedita animi. Ipsa, at labore.</p>
+                            <ul class="info__list gray dp-flex dr-row content-start g-2">
+                                <li>Lorem</li>
+                                <li class="seperator--vertical"></li>
+                                <li>Ipsum</li>
+                                <li class="seperator--vertical"></li>
+                                <li>Dolor</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-3">
+                        <div class="abc__article dp-flex dr-column">
+                            <img src="https://placehold.co/240x320" alt="">
+                            <h2>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Fugit, ullam.</h2>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Est error
+                                aliquam
+                                eaque enim! Iure inventore sed, illo eligendi nihil, officiis laboriosam
+                                nisi ex voluptatum voluptas expedita animi. Ipsa, at labore.</p>
+                            <ul class="info__list gray dp-flex dr-row content-start g-2">
+                                <li>Lorem</li>
+                                <li class="seperator--vertical"></li>
+                                <li>Ipsum</li>
+                                <li class="seperator--vertical"></li>
+                                <li>Dolor</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-3">
+                        <div class="abc__article dp-flex dr-column">
+                            <img src="https://placehold.co/240x320" alt="">
+                            <h2>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Fugit, ullam.</h2>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Est error
+                                aliquam
+                                eaque enim! Iure inventore sed, illo eligendi nihil, officiis laboriosam
+                                nisi ex voluptatum voluptas expedita animi. Ipsa, at labore.</p>
+                            <ul class="info__list gray dp-flex dr-row content-start g-2">
+                                <li>Lorem</li>
+                                <li class="seperator--vertical"></li>
+                                <li>Ipsum</li>
+                                <li class="seperator--vertical"></li>
+                                <li>Dolor</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-3">
+                        <div class="abc__article dp-flex dr-column">
+                            <img src="https://placehold.co/240x320" alt="">
+                            <h2>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Fugit, ullam.</h2>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Est error
+                                aliquam
+                                eaque enim! Iure inventore sed, illo eligendi nihil, officiis laboriosam
+                                nisi ex voluptatum voluptas expedita animi. Ipsa, at labore.</p>
+                            <ul class="info__list gray dp-flex dr-row content-start g-2">
+                                <li>Lorem</li>
+                                <li class="seperator--vertical"></li>
+                                <li>Ipsum</li>
+                                <li class="seperator--vertical"></li>
+                                <li>Dolor</li>
+                            </ul>
+                        </div>
+                    </div>
+                </article>
+                <div class="seperator--vertical"></div>
+            </div>
+        </section>
+
+        <section id="news-category">
+            <div class="container-fluid">
+
+                <div class="lastest__news">
+                    <h2>Lastest News</h2>
+                    <article class="grid-row">
+                        <div class="col-7">
+                            <img class="w-full" src="https://placehold.co/900x600" alt="">
+                        </div>
+                        <div class="col-5">
+                            <div class="dp-flex dr-column content-between h-full">
+                                <div class="lastest__content">
+                                    <h3 class="mb-4">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quisquam,
+                                        in?
+                                    </h3>
+                                    <p class="mb-4">
+                                        The findings demonstrate the role of partisanship in shaping public opinion
+                                        about policy, and they reveal a dynamic that observers have long noted: The
+                                        loyalty of Trumps base, and the dedication of h…
+                                    </p>
+                                </div>
+                                <div class="dp-flex dr-row content-between">
+                                    <ul class="info__list gray dp-flex dr-row content-start g-2">
+                                        <li>Lorem</li>
+                                        <li class="seperator--vertical"></li>
+                                        <li>Ipsum</li>
+                                        <li class="seperator--vertical"></li>
+                                        <li>Dolor</li>
+                                    </ul>
+                                    <a href="" class="btn no-pd">Continue Reading</a>
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+                <div class="news__category--list">
+                    <div class="grid-row">
+                        <div class="col-4">
+                            <div class="news__category--selected">
+                                <span>Lorem, ipsum dolor.</span>
+                                <img class="w-full" src="https://placehold.co/500x500" alt="">
+                                <h2>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dicta, dolores.</h2>
+                            </div>
+                            <div class="news__category--others">
+                                <div class="seperator--horizontal mbt-4"></div>
+                                <div class="dp-flex dr-rows items-center g-2">
+                                    <img src="https://placehold.co/180x120" alt="">
+                                    <h3>Lorem ipsum dolor, sit amet consectetur adipisicing elit.
+                                    </h3>
+                                </div>
+                                <div class="seperator--horizontal mbt-4"></div>
+                                <div class="dp-flex dr-rows items-center g-2">
+                                    <img src="https://placehold.co/180x120" alt="">
+                                    <h3>Lorem ipsum dolor, sit amet consectetur adipisicing elit.
+                                    </h3>
+                                </div>
+                                <div class="seperator--horizontal mbt-4"></div>
+                                <div class="dp-flex dr-rows items-center g-2">
+                                    <img src="https://placehold.co/180x120" alt="">
+                                    <h3>Lorem ipsum dolor, sit amet consectetur adipisicing elit.
+                                    </h3>
+                                </div>
+                                <div class="seperator--horizontal mbt-4"></div>
+                                <div class="dp-flex dr-rows items-center g-2">
+                                    <img src="https://placehold.co/180x120" alt="">
+                                    <h3>Lorem ipsum dolor, sit amet consectetur adipisicing elit.
+                                    </h3>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-4">
+                            <div class="news__category--selected">
+                                <span>Lorem, ipsum dolor.</span>
+                                <img class="w-full" src="https://placehold.co/500x500" alt="">
+                                <h2>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dicta, dolores.</h2>
+                            </div>
+                            <div class="news__category--others">
+                                <div class="seperator--horizontal mbt-4"></div>
+                                <div class="dp-flex dr-rows items-center g-2">
+                                    <img src="https://placehold.co/180x120" alt="">
+                                    <h3>Lorem ipsum dolor, sit amet consectetur adipisicing elit.
+                                    </h3>
+                                </div>
+                                <div class="seperator--horizontal mbt-4"></div>
+                                <div class="dp-flex dr-rows items-center g-2">
+                                    <img src="https://placehold.co/180x120" alt="">
+                                    <h3>Lorem ipsum dolor, sit amet consectetur adipisicing elit.
+                                    </h3>
+                                </div>
+                                <div class="seperator--horizontal mbt-4"></div>
+                                <div class="dp-flex dr-rows items-center g-2">
+                                    <img src="https://placehold.co/180x120" alt="">
+                                    <h3>Lorem ipsum dolor, sit amet consectetur adipisicing elit.
+                                    </h3>
+                                </div>
+                                <div class="seperator--horizontal mbt-4"></div>
+                                <div class="dp-flex dr-rows items-center g-2">
+                                    <img src="https://placehold.co/180x120" alt="">
+                                    <h3>Lorem ipsum dolor, sit amet consectetur adipisicing elit.
+                                    </h3>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-4">
+                            <div class="news__category--selected">
+                                <span>Lorem, ipsum dolor.</span>
+                                <img class="w-full" src="https://placehold.co/500x500" alt="">
+                                <h2>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dicta, dolores.</h2>
+                            </div>
+                            <div class="news__category--others">
+                                <div class="seperator--horizontal mbt-4"></div>
+                                <div class="dp-flex dr-rows items-center g-2">
+                                    <img src="https://placehold.co/180x120" alt="">
+                                    <h3>Lorem ipsum dolor, sit amet consectetur adipisicing elit.
+                                    </h3>
+                                </div>
+                                <div class="seperator--horizontal mbt-4"></div>
+                                <div class="dp-flex dr-rows items-center g-2">
+                                    <img src="https://placehold.co/180x120" alt="">
+                                    <h3>Lorem ipsum dolor, sit amet consectetur adipisicing elit.
+                                    </h3>
+                                </div>
+                                <div class="seperator--horizontal mbt-4"></div>
+                                <div class="dp-flex dr-rows items-center g-2">
+                                    <img src="https://placehold.co/180x120" alt="">
+                                    <h3>Lorem ipsum dolor, sit amet consectetur adipisicing elit.
+                                    </h3>
+                                </div>
+                                <div class="seperator--horizontal mbt-4"></div>
+                                <div class="dp-flex dr-rows items-center g-2">
+                                    <img src="https://placehold.co/180x120" alt="">
+                                    <h3>Lorem ipsum dolor, sit amet consectetur adipisicing elit.
+                                    </h3>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <section id="news-source">
+            <div class="container-fluid">
+                <div class="dp-flex">
+                    <h2>Our Sources</h2>
+                </div>
+                <div class="grid-row">
+                    <div class="col-4">
+                        <div class="sources-list dp-flex dr-column g-2">
+                            <div class="source__items">
+                                <h3>Lorem ipsum dolor sit amet.</h3>
+                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt omnis voluptatum
+                                    dicta explicabo hic deserunt.</p>
+                            </div>
+                            <div class="source__items">
+                                <h3>Lorem ipsum dolor sit amet.</h3>
+                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt omnis voluptatum
+                                    dicta explicabo hic deserunt.</p>
+                            </div>
+                            <div class="source__items">
+                                <h3>Lorem ipsum dolor sit amet.</h3>
+                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt omnis voluptatum
+                                    dicta explicabo hic deserunt.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-4">
+                        <div class="sources-list dp-flex dr-column g-2">
+                            <div class="source__items">
+                                <h3>Lorem ipsum dolor sit amet.</h3>
+                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt omnis voluptatum
+                                    dicta explicabo hic deserunt.</p>
+                            </div>
+                            <div class="source__items">
+                                <h3>Lorem ipsum dolor sit amet.</h3>
+                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt omnis voluptatum
+                                    dicta explicabo hic deserunt.</p>
+                            </div>
+                            <div class="source__items">
+                                <h3>Lorem ipsum dolor sit amet.</h3>
+                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt omnis voluptatum
+                                    dicta explicabo hic deserunt.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-4">
+                        <div class="sources-list dp-flex dr-column g-2">
+                            <div class="source__items">
+                                <h3>Lorem ipsum dolor sit amet.</h3>
+                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt omnis voluptatum
+                                    dicta explicabo hic deserunt.</p>
+                            </div>
+                            <div class="source__items">
+                                <h3>Lorem ipsum dolor sit amet.</h3>
+                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt omnis voluptatum
+                                    dicta explicabo hic deserunt.</p>
+                            </div>
+                            <div class="source__items">
+                                <h3>Lorem ipsum dolor sit amet.</h3>
+                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt omnis voluptatum
+                                    dicta explicabo hic deserunt.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="dp-flex content-end mt-2">
+                    <a href="javascript:;" class="btn no-pd">See more</a>
+                </div>
+            </div>
+        </section>
     </main>
 
-    <footer>
-
+    <footer class="bg-black">
+        <div class="container-fluid">
+            <div class="grid-row">
+                <div class="col-4">
+                    <h2>Real stories. Real people. Real impact. News that truly matters.</h2>
+                </div>
+                <div class="col-8">
+                    <div class="footer__information dp-flex dr-rows">
+                        <div class="footer__pages dp-flex dr-column">
+                            <a class="btn color-calligraphy" href="#hero">Top News</a>
+                            <a class="btn color-calligraphy" href="#abc-news">ABC News</a>
+                            <a class="btn color-calligraphy" href="#news-category">Category</a>
+                            <a class="btn color-calligraphy" href="#news-source">Sources</a>
+                            <a class="btn color-calligraphy" href="javascript:;">Search</a>
+                        </div>
+                        <div class="footer__social dp-flex dr-column content-between">
+                            <div class="social__primary dp-flex dr-column">
+                                <a class="btn" href="">Instagram</a>
+                                <a class="btn" href="">Linked In</a>
+                                <a class="btn" href="">GitHub</a>
+                            </div>
+                            <a class="btn" href="">Repository</a>
+                        </div>
+                        <div class="footer__contact dp-flex content-between w-full">
+                            <div class="contact__me dp-flex dr-column">
+                                <p>notblue.https@gmail.com</p>
+                                <p>62+ 801 2345 6789.</p>
+                            </div>
+                            <div class="footer__copyright dp-flex dr-column content-between">
+                                <p>ALL RIGHT RESERVED</p>
+                                <p>2025</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12">
+                    <h2 class="mt-10 text-center">NEWSBRIDGE.</h2>
+                </div>
+            </div>
+        </div>
     </footer>
     <script type="module" src="js/index.js"></script>
 </body>
