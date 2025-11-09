@@ -14,6 +14,7 @@
         query: "",
         page: 1,
         totalResults: 0,
+        sources: [],
       };
       this.form = document.querySelector(formSelector);
     }
@@ -24,8 +25,9 @@
     }
 
     async init() {
-      this.handleSearchSubmit(); // set up event listener
-      await this.fetchSearchResults("", 1); // load default content on page load
+      this.handleSearchSubmit();
+      await this.fetchSources();
+      await this.fetchSearchResults("", 1);
     }
 
     handleSearchSubmit() {
@@ -34,10 +36,10 @@
         e.preventDefault();
         const formData = new FormData(this.form);
         const query = formData.get("q")?.trim() || "";
+        const sources = formData.get("sources")?.trim() || "";
         const from = formData.get("from")?.trim();
         const to = formData.get("to")?.trim();
 
-        // Validasi tanggal
         if (from && to) {
           const fromDate = new Date(from);
           const toDate = new Date(to);
@@ -58,16 +60,15 @@
         }
 
         this.setState({ page: 1, error: null });
-        this.fetchSearchResults(query, 1, from, to);
+        this.fetchSearchResults(query, 1, sources, from, to);
       });
     }
 
-    async fetchSearchResults(query = "", page = 1, from = "", to = "") {
+    async fetchSearchResults(query = "", page = 1, sources = "", from = "", to = "") {
       this.setState({ loading: true, error: null, query, page });
 
       try {
         const params = {
-          sources: "abc-news",
           language: "en",
           pageSize: 8,
           page,
@@ -75,6 +76,7 @@
         console.log('tes');
 
         if (query) params.q = query;
+        if (sources) params.sources = sources;
         if (from) params.from = from;
         if (to) params.to = to;
 
@@ -86,6 +88,31 @@
       } catch (err) {
         this.setState({ error: err.message, loading: false });
       }
+    }
+
+    async fetchSources() {
+      try {
+        const data = await this.service.getSources();
+        if (data?.sources) {
+          this.setState({ sources: data.sources });
+          this.populateSourcesSelect(data.sources);
+        }
+      } catch (err) {
+        console.error("Failed to fetch sources:", err);
+      }
+    }
+
+    populateSourcesSelect(sources) {
+      const sourcesSelect = this.form.querySelector('#sources');
+      if (!sourcesSelect) return;
+
+      sourcesSelect.innerHTML = '<option value="">All Sources</option>';
+      sources.forEach(source => {
+        const option = document.createElement('option');
+        option.value = source.id;
+        option.textContent = source.name;
+        sourcesSelect.appendChild(option);
+      });
     }
 
     handlePagination(direction) {
@@ -102,9 +129,10 @@
       if (newPage !== page) {
         this.setState({ page: newPage });
         const formData = new FormData(this.form);
+        const sources = formData.get("sources")?.trim() || "";
         const from = formData.get("from")?.trim() || "";
         const to = formData.get("to")?.trim() || "";
-        this.fetchSearchResults(this.state.query, newPage, from, to);
+        this.fetchSearchResults(this.state.query, newPage, sources, from, to);
       }
     }
 
