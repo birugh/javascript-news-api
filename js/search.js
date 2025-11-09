@@ -1,3 +1,5 @@
+import { SearchController } from "../controllers/SearchController.js";
+
 document.addEventListener('DOMContentLoaded', () => {
     const sidebarToggle = document.getElementById('sidebar-toggle');
     const sidebarClose = document.querySelector('.sidebar-toggle');
@@ -18,4 +20,8 @@ document.addEventListener('DOMContentLoaded', () => {
             searchSidebar.classList.remove('active');
         }
     });
+
+    
+    const search = new SearchController("#search-results", "#search-form");
+    search.init();
 });
