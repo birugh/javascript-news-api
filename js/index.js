@@ -1,8 +1,12 @@
 import { HeroController } from "../controllers/HeroController.js";
+import { AbcNewsController } from "../controllers/AbcNewsController.js";
 
 document.addEventListener("DOMContentLoaded", () => {
   const hero = new HeroController("#hero");
   hero.init();
+
+  const abcNews = new AbcNewsController("#abc-news");
+  abcNews.init();
 });
 
 

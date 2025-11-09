@@ -6,7 +6,9 @@ export class NewsModel {
         this.description = this.truncateAtWord(rawData.description || '(No Description)', 120);
         this.url = rawData.url || '#';
         this.urlToImage = rawData.urlToImage || '';
-        this.publishedAt = rawData.publishedAt || '';
+        this.publishedAt = rawData.publishedAt
+            ? new Date(rawData.publishedAt).toLocaleDateString()
+            : "-";
         this.content = rawData.content || '';
     }
 
