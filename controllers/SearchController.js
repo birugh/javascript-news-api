@@ -34,12 +34,35 @@
         e.preventDefault();
         const formData = new FormData(this.form);
         const query = formData.get("q")?.trim() || "";
-        this.setState({ page: 1 });
-        this.fetchSearchResults(query, 1);
+        const from = formData.get("from")?.trim();
+        const to = formData.get("to")?.trim();
+
+        // Validasi tanggal
+        if (from && to) {
+          const fromDate = new Date(from);
+          const toDate = new Date(to);
+          const today = new Date();
+          today.setHours(0, 0, 0, 0);
+
+          if (fromDate > toDate) {
+            this.setState({ error: "Tanggal 'From' tidak boleh lebih besar dari 'To'." });
+            return;
+          }
+          if (fromDate > today || toDate > today) {
+            this.setState({ error: "Tanggal tidak boleh lebih dari hari ini." });
+            return;
+          }
+        } else if (from || to) {
+          this.setState({ error: "Jika salah satu tanggal diisi, keduanya harus diisi." });
+          return;
+        }
+
+        this.setState({ page: 1, error: null });
+        this.fetchSearchResults(query, 1, from, to);
       });
     }
 
-    async fetchSearchResults(query = "", page = 1) {
+    async fetchSearchResults(query = "", page = 1, from = "", to = "") {
       this.setState({ loading: true, error: null, query, page });
 
       try {
@@ -52,6 +75,8 @@
         console.log('tes');
 
         if (query) params.q = query;
+        if (from) params.from = from;
+        if (to) params.to = to;
 
         const data = await this.service.getEverything(params);
         if (data?.error) throw new Error(data.message);
@@ -76,7 +101,10 @@
 
       if (newPage !== page) {
         this.setState({ page: newPage });
-        this.fetchSearchResults(this.state.query, newPage);
+        const formData = new FormData(this.form);
+        const from = formData.get("from")?.trim() || "";
+        const to = formData.get("to")?.trim() || "";
+        this.fetchSearchResults(this.state.query, newPage, from, to);
       }
     }
 

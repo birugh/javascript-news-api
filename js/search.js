@@ -23,7 +23,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     
     const search = new SearchController("#search-results", "#search-form");
-    search.init();
+    // search.init();
 
     // Handle pagination buttons
     document.addEventListener('click', (e) => {
