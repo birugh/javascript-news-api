@@ -36,8 +36,16 @@
 
 
 /* ! Categories */
-#news-category {
+news__category--item #news-category {
     margin: 128px 0;
+}
+
+.news__category--item {
+    flex-direction: row;
+}
+
+.news__category--item img {
+    width: 100%;
 }
 
 .lastest__news h2 {
@@ -70,6 +78,7 @@
 }
 
 .news__category--selected h2 {
+    font-weight: 600;
     font-size: 32px;
 }
 

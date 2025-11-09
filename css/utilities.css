@@ -1365,3 +1365,12 @@
 .no-pd {
     padding: 0;
 }
+
+.my-auto {
+    margin: auto 0;
+}
+
+.mx-auto {
+    margin: 0 auto;
+}
+

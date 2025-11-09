@@ -7,23 +7,167 @@
 @media (max-width: 1199.98px) {
 
   /* TODO */
+  .hero__article--list {
+    margin-top: 96px;
+  }
 
+  .hero__article--others {
+    flex-direction: column;
+  }
+
+  .hero__article--items {
+    gap: 12px;
+  }
+
+  .news__category--item {
+    flex-direction: column;
+  }
+
+  footer h2 {
+    padding: 12px 18px;
+  }
+
+  h1 {
+    font-weight: 100;
+    font-size: 52px;
+    line-height: 1.2;
+    color: white;
+    margin: 0;
+  }
+
+  h2 {
+    font-weight: 500;
+    font-size: 42px;
+    line-height: 1.2;
+  }
+
+  p {
+    font-weight: 500;
+    color: var(--calligraphy);
+    font-size: 18px;
+    line-height: 1.3;
+    letter-spacing: 1px;
+  }
+
+  .lastest__content h3 {
+    font-size: 40px;
+  }
+
+  .news__category--selected h2 {
+    font-size: 28px;
+  }
+
+  .news__category--item h3,
+  .source__items h3 {
+    font-size: 24px;
+  }
 }
 
 @media (max-width: 991.98px) {
 
   /* TODO */
+  .hero__article--main img {
+    margin-top: 42px;
+  }
+
+  .abc__article {
+    margin-bottom: 42px;
+  }
+
+  #news-source a {
+    text-align: center;
+    width: 100%;
+  }
+
+  .footer__contact {
+    flex-direction: column;
+  }
+
 
 }
 
 @media (max-width: 767.98px) {
 
   /* TODO */
+  .footer__information {
+    flex-direction: column;
+  }
 
+  h1 {
+    font-weight: 100;
+    font-size: 40px;
+    line-height: 1.2;
+    color: white;
+    margin: 0;
+  }
+
+  h2 {
+    font-weight: 500;
+    font-size: 28px;
+    line-height: 1.2;
+  }
+
+  p {
+    font-weight: 500;
+    color: var(--calligraphy);
+    font-size: 16px;
+    line-height: 1.5;
+    letter-spacing: 1px;
+  }
+
+  .lastest__content h3 {
+    font-size: 38px;
+  }
+
+  .news__category--selected h2 {
+    font-size: 28px;
+  }
+
+  .news__category--item h3,
+  .source__items h3 {
+    font-size: 24px;
+  }
+  
+  .menu__content {
+    width: 100vh;
+  }
 }
 
 @media (max-width: 575.98px) {
 
   /* TODO */
+  h1 {
+    font-weight: 100;
+    font-size: 32px;
+    line-height: 1.2;
+    color: white;
+    margin: 0;
+  }
 
+  h2 {
+    font-weight: 500;
+    font-size: 24px;
+    line-height: 1.2;
+  }
+
+  p {
+    font-weight: 500;
+    color: var(--calligraphy);
+    font-size: 15px;
+    line-height: 1.6;
+    letter-spacing: 1px;
+  }
+
+  .lastest__content h3 {
+    font-size: 32px;
+  }
+
+  .news__category--selected h2 {
+    font-size: 20px;
+  }
+
+  .news__category--item h3,
+  .source__items h3 {
+    font-size: 18px;
+  }
 }

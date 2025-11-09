@@ -15,7 +15,8 @@ window.addEventListener('scroll', function () {
 
     const navbar = document.getElementById('navbar');
     const profile = document.getElementById('icon-profile');
-    const scrollPoint = 1500;
+    const target = document.getElementById('abc-news');
+    const scrollPoint = target.offsetTop - 200;
 
     if (window.scrollY > scrollPoint) {
         navbar.classList.add('scrolled');

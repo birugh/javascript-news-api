@@ -83,7 +83,7 @@ nav strong {
 /* ! Button */
 .btn {
     color: var(--off_black);
-    padding: 12px 18px;
+    padding: 12px;
     border-radius: 16px;
     font-weight: 500;
     width: fit-content;
