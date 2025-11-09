@@ -1,4 +1,4 @@
-export class PostView {
+export class HeadlinesView {
     constructor(containerSelector) {
         this.container = document.querySelector(containerSelector);
     }
