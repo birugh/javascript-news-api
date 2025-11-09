@@ -19,6 +19,7 @@ export class AbcNewsView {
     }
 
     this.container.innerHTML = `
+      <h2 class="abc__title">ABC-News</h2>
       <article class="grid-row">
         ${itemsNews.slice(0, 4).map(news => `
           <div class="col-3 col-lg-6 col-md-12">

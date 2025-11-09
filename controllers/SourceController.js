@@ -1,14 +1,16 @@
+// controllers/SourceController.js
 import { NewsService } from "../services/NewsService.js";
-import { ArticleModel } from "../models/ArticleModel.js";
+import { SourceModel } from "../models/SourceModel.js";
 import { SourceView } from "../views/SourceView.js";
 
-export class SearchController {
+export class SourceController {
   constructor(containerSelector) {
     this.view = new SourceView(containerSelector);
     this.service = new NewsService();
     this.state = {
       loading: false,
-      error: null
+      error: null,
+      sources: [],
     };
   }
 
@@ -17,13 +19,13 @@ export class SearchController {
     this.render();
   }
 
-  async init(params) {
+  async init() {
     this.setState({ loading: true, error: null });
     try {
-      const data = await this.service.getSources(params);
+      const data = await this.service.getSources();
       if (data?.error) throw new Error(data.message);
 
-      const sources = data.map(s => new SourceModel(s));
+      const sources = (data.sources || []).map((src) => new SourceModel(src));
       this.setState({ sources, loading: false });
     } catch (err) {
       this.setState({ error: err.message, loading: false });
@@ -33,16 +35,8 @@ export class SearchController {
   render() {
     const { loading, error, sources } = this.state;
 
-    if (loading) {
-      this.view.renderLoading();
-      return;
-    }
-
-    if (error) {
-      this.view.renderError(error);
-      return;
-    }
-
+    if (loading) return this.view.renderLoading();
+    if (error) return this.view.renderError(error);
     this.view.render(sources);
   }
 }
