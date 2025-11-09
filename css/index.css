@@ -57,8 +57,28 @@
 }
 
 /* ! Categories */
-news__category--item #news-category {
+#news-category {
     margin: 128px 0;
+}
+
+.lastest__news img {
+    width: 100%;
+    aspect-ratio: 900/600;
+    object-fit: cover;
+}
+
+.news__category--selected img {
+    width: 100%;
+    aspect-ratio: 500/500;
+    object-fit: cover;
+}
+
+.news__category--item img {
+    width: 100%;
+    max-width: 180px;
+    aspect-ratio: 180/120;
+    object-fit: cover;
+
 }
 
 .news__category--item {

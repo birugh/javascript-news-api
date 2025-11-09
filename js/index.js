@@ -1,12 +1,16 @@
 import { HeroController } from "../controllers/HeroController.js";
 import { AbcNewsController } from "../controllers/AbcNewsController.js";
+import { CategoryNewsController } from "../controllers/CategoryNewsController.js";
 
 document.addEventListener("DOMContentLoaded", () => {
-  const hero = new HeroController("#hero");
-  hero.init();
+    const hero = new HeroController("#hero-content");
+    hero.init();
 
-  const abcNews = new AbcNewsController("#abc-news");
-  abcNews.init();
+    const abcNews = new AbcNewsController("#abc-news-content");
+    abcNews.init();
+
+    const categories = new CategoryNewsController("#category-news-content");
+    categories.init();
 });
 
 
@@ -21,7 +25,7 @@ window.addEventListener('scroll', function () {
 
     if (window.scrollY > scrollPoint) {
         navbar.classList.add('scrolled');
-        
+
         profile.classList.add('color-black');
         profile.classList.remove('color-white');
 
@@ -40,7 +44,7 @@ window.addEventListener('scroll', function () {
 
 document.addEventListener('DOMContentLoaded', () => {
     const hamburger = document.getElementById('hamburger-nav');
-    
+
     hamburger.addEventListener('click', () => {
         menu.classList.toggle('active');
     })
