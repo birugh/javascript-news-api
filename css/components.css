@@ -99,6 +99,56 @@ nav strong {
     font-weight: 500;
 }
 
+.cta__user {
+    cursor: pointer;
+    position: relative;
+    user-select: none;
+}
+
+.user__menu {
+    position: absolute;
+    top: 100%;
+    right: 1%;
+    background-color: white;
+    border: 1px solid var(--tangled_web);
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+    min-width: 120px;
+    user-select: none;
+}
+
+.user__menu--mobile {
+    position: absolute;
+    top: 8%;
+    right: 10%;
+    background-color: white;
+    border: 1px solid var(--tangled_web);
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+    min-width: 120px;
+    user-select: none;
+}
+
+.user__menu--mobile button,
+.user__menu button {
+    width: 100%;
+    padding: 10px 16px;
+    background: none;
+    border: none;
+    text-align: left;
+    cursor: pointer;
+    color: var(--off_black);
+    font-weight: 500;
+}
+
+.user__menu--mobile button:hover,
+.user__menu--mobile button:focus,
+.user__menu button:hover {
+    background-color: var(--sleet);
+}
+
 /* ! Button */
 .btn {
     color: var(--off_black);

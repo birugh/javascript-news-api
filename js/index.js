@@ -2,8 +2,19 @@ import { HeroController } from "../controllers/HeroController.js";
 import { AbcNewsController } from "../controllers/AbcNewsController.js";
 import { CategoryNewsController } from "../controllers/CategoryNewsController.js";
 import { SourceController } from "../controllers/SourceController.js";
+import { AuthService } from "../services/AuthService.js";
 
 document.addEventListener("DOMContentLoaded", () => {
+    const auth = new AuthService();
+
+    if (auth.isLoggedIn()) {
+        const user = JSON.parse(localStorage.getItem("user"));
+        document.getElementById("user-name").textContent = user.firstName;
+        document.getElementById("user-name-mobile").textContent = user.firstName;
+        document.querySelectorAll(".cta__guest").forEach(el => el.classList.add("dp-none"));
+        document.querySelectorAll(".cta__user").forEach(el => el.classList.remove("dp-none"));
+    }
+
     const hero = new HeroController("#hero-content");
     hero.init();
 
@@ -15,6 +26,46 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // const sources = new SourceController("#news-source-content");
     // sources.init();
+
+    const ctaUser = document.getElementById("cta-user");
+    const userMenu = document.getElementById("user-menu");
+
+    if (ctaUser && userMenu) {
+        ctaUser.addEventListener("click", () => {
+            userMenu.classList.toggle("dp-none");
+        });
+
+        document.getElementById("logout-btn").addEventListener("click", () => {
+            auth.logout();
+            window.location.href = "login.html";
+        });
+
+        document.addEventListener("click", (e) => {
+            if (!ctaUser.contains(e.target)) {
+                userMenu.classList.add("dp-none");
+            }
+        });
+    }
+
+    const ctaUserMobile = document.getElementById("cta-user-mobile");
+    const userMenuMobile = document.getElementById("user-menu-mobile");
+
+    if (ctaUserMobile && userMenuMobile) {
+        ctaUserMobile.addEventListener("click", () => {
+            userMenuMobile.classList.toggle("dp-none");
+        });
+
+        document.getElementById("logout-btn-mobile").addEventListener("click", () => {
+            auth.logout();
+            window.location.href = "login.html";
+        });
+
+        document.addEventListener("click", (e) => {
+            if (!ctaUserMobile.contains(e.target)) {
+                userMenuMobile.classList.add("dp-none");
+            }
+        });
+    }
 });
 
 

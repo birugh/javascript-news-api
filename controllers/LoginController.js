@@ -30,7 +30,7 @@ export class LoginController {
     const formData = new FormData(this.form);
     const username = formData.get("username");
     const password = formData.get("password");
-    const expiresInMins = 1;
+    const expiresInMins = 20;
     
     
     if (!username || !password) {
