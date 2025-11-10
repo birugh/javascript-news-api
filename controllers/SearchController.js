@@ -28,8 +28,8 @@ export class SearchController {
   async init() {
     requireAuth();
     this.handleSearchSubmit();
-    await this.fetchSources();
-    await this.fetchSearchResults("", 1);
+    // await this.fetchSources();
+    await this.fetchSearchResults("news", 1);
   }
 
   handleSearchSubmit() {
@@ -75,7 +75,6 @@ export class SearchController {
         pageSize: 8,
         page,
       };
-      console.log('tes');
 
       if (query) params.q = query;
       if (sources) params.sources = sources;

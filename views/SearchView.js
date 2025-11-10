@@ -21,7 +21,7 @@ export class SearchView {
         .map(
           (news) => `
             <div class="col-3 col-md-6 col-lg-12 mb-4">
-              <a href="${news.url}" class="article-card dp-flex dr-column h-full content-start bg-white p-3">
+              <a href="${news.url}" target="_blank" class="article-card dp-flex dr-column h-full content-start bg-white p-3">
                 <img src="${news.urlToImage || './assets/placeholder.jpg'}" alt="${news.title}" class="w-full article-img">
                 <h2 class="mt-3 color-black">${news.title}</h2>
                 <p class="color-calligraphy">${news.description || ''}</p>
