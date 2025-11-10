@@ -1,4 +1,5 @@
 // controllers/CategoryNewsController.js
+import { requireAuth } from "../helpers/AuthGuard.js";
 import { NewsService } from "../services/NewsService.js";
 import { NewsModel } from "../models/NewsModel.js";
 import { CategoryNewsView } from "../views/CategoryNewsView.js";
@@ -25,6 +26,7 @@ export class CategoryNewsController {
   }
 
   async init() {
+    requireAuth();
     this.setState({ loading: true, error: null });
 
     try {

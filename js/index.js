@@ -4,8 +4,8 @@ import { CategoryNewsController } from "../controllers/CategoryNewsController.js
 import { SourceController } from "../controllers/SourceController.js";
 
 document.addEventListener("DOMContentLoaded", () => {
-    // const hero = new HeroController("#hero-content");
-    // hero.init();
+    const hero = new HeroController("#hero-content");
+    hero.init();
 
     // const abcNews = new AbcNewsController("#abc-news-content");
     // abcNews.init();

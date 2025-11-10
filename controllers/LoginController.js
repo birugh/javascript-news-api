@@ -30,18 +30,18 @@ export class LoginController {
     const formData = new FormData(this.form);
     const username = formData.get("username");
     const password = formData.get("password");
-    
     const expiresInMins = 1;
-
+    
+    
     if (!username || !password) {
       this.setState({ error: "Harap isi username dan password." });
       return;
     }
-
+    
     this.setState({ loading: true, error: null });
 
     try {
-      const data = await this.service.login({ username, password });
+      const data = await this.service.login({ username, password, expiresInMins });
 
       if (data?.error) throw new Error(data.message);
 

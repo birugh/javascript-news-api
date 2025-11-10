@@ -22,7 +22,7 @@ export class AuthService extends BaseService {
             }
 
             const now = Date.now();
-            const expireAt = now + 1 * 60 * 1000;
+            const expireAt = now + bodyData.expiresInMins * 60 * 1000;
 
             localStorage.setItem("accessToken", data.accessToken);
             localStorage.setItem("expireAt", expireAt);

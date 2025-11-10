@@ -21,7 +21,7 @@ export class HeroController {
   }
 
   async init() {
-    // requireAuth();
+    requireAuth();
     this.setState({ loading: true, error: null });
     try {
       const params = {

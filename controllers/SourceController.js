@@ -1,4 +1,5 @@
 // controllers/SourceController.js
+import { requireAuth } from "../helpers/AuthGuard.js";
 import { NewsService } from "../services/NewsService.js";
 import { SourceModel } from "../models/SourceModel.js";
 import { SourceView } from "../views/SourceView.js";
@@ -20,6 +21,7 @@ export class SourceController {
   }
 
   async init() {
+    requireAuth();
     this.setState({ loading: true, error: null });
     try {
       const data = await this.service.getSources();
