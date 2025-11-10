@@ -18,14 +18,14 @@ document.addEventListener("DOMContentLoaded", () => {
     const hero = new HeroController("#hero-content");
     hero.init();
 
-    // const abcNews = new AbcNewsController("#abc-news-content");
-    // abcNews.init();
+    const abcNews = new AbcNewsController("#abc-news-content");
+    abcNews.init();
 
-    // const categories = new CategoryNewsController("#category-news-content");
-    // categories.init();
+    const categories = new CategoryNewsController("#category-news-content");
+    categories.init();
 
-    // const sources = new SourceController("#news-source-content");
-    // sources.init();
+    const sources = new SourceController("#news-source-content");
+    sources.init();
 
     const ctaUser = document.getElementById("cta-user");
     const userMenu = document.getElementById("user-menu");

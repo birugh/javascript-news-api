@@ -11,6 +11,8 @@
     <link rel="stylesheet" href="../css/utilities.css">
     <link rel="stylesheet" href="../css/index.css">
     <link rel="stylesheet" href="../css/resp.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
+
 </head>
 
 <body>
@@ -39,12 +41,15 @@
                     <div class="nav__cta">
                         <div class="dp-flex content-end g-2">
                             <div class="cta__guest">
-                                <a class="btn btn--secondary" href="javascript:;">Log in</a>
+                                <a class="btn btn--secondary" href="login.html">Log in</a>
                             </div>
-                            <div class="cta__user dp-none">
-                                <span class="mr-1">Biru</span>
+                            <div class="cta__user dp-none" id="cta-user">
+                                <span class="mr-1" id="user-name">Biru</span>
                                 <i class="fa-solid fa-user color-white" id="icon-profile"></i>
                             </div>
+                        </div>
+                        <div class="user__menu dp-none" id="user-menu">
+                            <button id="logout-btn">Logout</button>
                         </div>
                     </div>
                 </div>
@@ -58,7 +63,18 @@
                         <div class="menu__content bg-black g-2" id="menu-navbar">
                             <div class="menu__secondary dp-flex dr-column items-end g-2">
                                 <div class="menu__secondary dp-none dp-xxl-flex dr-column items-end g-2">
-                                    <a class="btn btn--secondary" href="javascript:;">Log in</a>
+                                    <div class="dp-flex content-end g-2">
+                                        <div class="cta__guest">
+                                            <a class="btn btn--secondary" href="login.html">Log in</a>
+                                        </div>
+                                        <div class="cta__user dp-none" id="cta-user-mobile">
+                                            <span class="mr-1" id="user-name-mobile">Biru</span>
+                                            <i class="fa-solid fa-user color-white" id="icon-profile-mobile"></i>
+                                        </div>
+                                    </div>
+                                    <div class="user__menu--mobile" id="user-menu-mobile">
+                                        <button id="logout-btn-mobile">Logout</button>
+                                    </div>
                                 </div>
                                 <div class="seperator--horizontal mbt-2"></div>
                                 <div class="menu__primary dp-none dp-md-flex dr-column items-end g-2">
@@ -66,7 +82,7 @@
                                     <a class="btn btn--white" href="#abc-news">ABC News</a>
                                     <a class="btn btn--white" href="#news-category">Category</a>
                                     <a class="btn btn--white" href="#news-source">Sources</a>
-                                    <a class="btn btn--white" href="javascript:;">Search</a>
+                                    <a class="btn btn--white" href="search.html">Search</a>
                                 </div>
                             </div>
                         </div>
@@ -125,8 +141,8 @@
                         <div class="mb-3">
                             <label for="excludeDomain" class="color-black">Exclude Domain</label>
                             <div class="input__container">
-                                <input type="text" id="excludeDomain" name="excludeDomain" placeholder="e.g., badsite.com"
-                                    class="input-field">
+                                <input type="text" id="excludeDomain" name="excludeDomain"
+                                    placeholder="e.g., badsite.com" class="input-field">
                             </div>
                         </div>
                         <div class="mb-3">
@@ -179,7 +195,7 @@
             </div>
         </div>
     </main>
-    
+
     <script type="module" src="../js/search.js"></script>
 </body>
 

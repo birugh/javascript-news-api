@@ -2,12 +2,17 @@
 export class SourceView {
   constructor(containerSelector) {
     this.container = document.querySelector(containerSelector);
+    this.allSources = [];
+    this.currentIndex = 0;
   }
 
   render(sources) {
     if (!this.container) return;
 
-    if (!sources || sources.length === 0) {
+    this.allSources = sources || [];
+    this.currentIndex = 0;
+
+    if (!this.allSources || this.allSources.length === 0) {
       this.container.innerHTML = `
         <div class="dp-flex">
           <h2>Our Sources</h2>
@@ -21,10 +26,15 @@ export class SourceView {
       return;
     }
 
-    const limitedSources = sources.slice(0, 9);
-    const column1 = limitedSources.slice(0, 3);
-    const column2 = limitedSources.slice(3, 6);
-    const column3 = limitedSources.slice(6, 9);
+    this.renderSources();
+  }
+
+  renderSources() {
+    const endIndex = Math.min(this.currentIndex + 9, this.allSources.length);
+    const sourcesToShow = this.allSources.slice(this.currentIndex, endIndex);
+    const column1 = sourcesToShow.slice(0, 3);
+    const column2 = sourcesToShow.slice(3, 6);
+    const column3 = sourcesToShow.slice(6, 9);
 
     this.container.innerHTML = `
       <div class="dp-flex">
@@ -64,10 +74,27 @@ export class SourceView {
           </div>
         </div>
       </div>
-      <div class="dp-flex content-end mt-4">
-        <a href="javascript:;" class="btn no-pd">See more</a>
+      <div class="dp-flex content-between items-center mt-4">
+        <button class="btn btn--secondary" id="prev-btn" ${this.currentIndex === 0 ? 'disabled' : ''}>Previous</button>
+        <span>Showing ${this.currentIndex + 1}-${endIndex} of ${this.allSources.length}</span>
+        <button class="btn btn--primary" id="next-btn" ${endIndex >= this.allSources.length ? 'disabled' : ''}>Next</button>
       </div>
     `;
+
+    const prevBtn = this.container.querySelector('#prev-btn');
+    const nextBtn = this.container.querySelector('#next-btn');
+    if (prevBtn) {
+      prevBtn.addEventListener('click', () => {
+        this.currentIndex = Math.max(0, this.currentIndex - 9);
+        this.renderSources();
+      });
+    }
+    if (nextBtn) {
+      nextBtn.addEventListener('click', () => {
+        this.currentIndex += 9;
+        this.renderSources();
+      });
+    }
   }
 
   renderLoading() {
