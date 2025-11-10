@@ -16,6 +16,7 @@ export class SearchController {
       page: 1,
       totalResults: 0,
       sources: [],
+      isLocked: false,
     };
     this.form = document.querySelector(formSelector);
   }
@@ -34,8 +35,14 @@ export class SearchController {
 
   handleSearchSubmit() {
     if (!this.form) return;
+    this.isLocked = false;
     this.form.addEventListener("submit", async (e) => {
       e.preventDefault();
+
+      if (this.isLocked) return;
+      console.log('log');
+      
+
       const formData = new FormData(this.form);
       const query = formData.get("q")?.trim() || "";
       const sources = formData.get("sources")?.trim() || "";
@@ -70,6 +77,7 @@ export class SearchController {
     this.setState({ loading: true, error: null, query, page });
 
     try {
+      this.isLocked = true;
       const params = {
         language: "en",
         pageSize: 8,
@@ -88,6 +96,8 @@ export class SearchController {
       this.setState({ articles, totalResults: data.totalResults || 0, loading: false });
     } catch (err) {
       this.setState({ error: err.message, loading: false });
+    } finally {
+      this.isLocked = false;
     }
   }
 
