@@ -4,6 +4,13 @@
     padding: 0 var(--gutter);
 }
 
+.container-small {
+    width: 100%;
+    max-width: 600px;
+    margin: 0;
+    padding: 0 var(--gutter);
+}
+
 .grid-row {
     display: flex;
     flex-wrap: wrap;

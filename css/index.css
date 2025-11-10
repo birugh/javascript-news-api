@@ -1,8 +1,4 @@
-s/* ! Hero Section */
-#hero {
-    background-color: var(--black);
-    padding: 128px 0;
-}
+/* ! Hero Section */
 
 #hero h2 {
     font-size: 24px;
@@ -207,4 +203,32 @@ footer h2 {
 .article-card h2 {
     font-size: 32px;
     margin-bottom: 12px;
+}
+
+/* ! Login Page */
+.login {
+    min-height: 100vh;
+}
+
+#togglePassword {
+    cursor: pointer;
+}
+
+#login-form {
+    border-radius: 16px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 64px 32px;
+}
+
+#login-form h2 {
+    font-size: 36px;
+}
+
+#login-form input {
+    width: 100%;
+    border: none;
+    outline: none;
+    padding: 12px 16px;
+    border-radius: 16px;
+    background-color: transparent;
 }

@@ -56,7 +56,7 @@ export class HeroView {
           <div class="hero__article--list dp-flex dr-column g-2 content-between">
             ${sidebarArticles.map(article => `
               <div class="hero__article--items dp-flex g-2">
-                <img src="${article.urlToImage || 'https://placehold.co/180x200'}" alt="${article.title}">
+                <img src="${article.urlToImage || 'https://placehold.co/180x200'}" onerror="this.onerror=null; this.src='https://placehold.co/180x200';" alt="${article.title}">
                 <div class="dp-flex dr-column content-between pbt-2">
                   <ul class="info__list dp-flex dr-row content-start g-2">
                     <li>${article.source.name || 'Unknown'}</li>

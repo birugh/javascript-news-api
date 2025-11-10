@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="../css/base.css">
+    <link rel="stylesheet" href="../css/components.css">
+    <link rel="stylesheet" href="../css/grid.css">
+    <link rel="stylesheet" href="../css/utilities.css">
+    <link rel="stylesheet" href="../css/index.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
+</head>
+
+<body>
+    <section class="login dp-flex content-center items-center">
+        <div class="container-small">
+            <div class="grid-row content-center items-center">
+                <div class="col-12">
+                    <form id="login-form" class="bg-white">
+                        <h2 class="text-center mb-4 color-black">Login Newsbridge</h2>
+                        <div class="mb-3">
+                            <label for="username" class="color-black">Username</label>
+                            <div class="input__container">
+                                <input type="text" id="username" name="username" placeholder="Enter your username"
+                                    required>
+                            </div>
+                        </div>
+                        <div class="mb-4">
+                            <label for="password" class="color-black">Password</label>
+                            <div class="input__container">
+                                <input type="password" id="password" name="password" placeholder="Enter your password"
+                                    required>
+                                <i id="togglePassword" class="fa-solid fa-eye mr-2"></i>
+                            </div>
+                        </div>
+                        <button type="submit" class="btn btn--primary w-full mb-4">Login</button>
+                        <div id="login-result"></div>
+                    </form>
+                </div>
+            </div>
+    </section>
+    </div>
+    <script type="module" src="../js/login.js"></script>
+</body>
+
+</html>

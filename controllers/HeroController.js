@@ -1,4 +1,5 @@
 // controllers/HeroController.js
+import { requireAuth } from "../helpers/AuthGuard.js";
 import { NewsService } from "../services/NewsService.js";
 import { NewsModel } from "../models/NewsModel.js";
 import { HeroView } from "../views/HeroView.js";
@@ -20,6 +21,7 @@ export class HeroController {
   }
 
   async init() {
+    // requireAuth();
     this.setState({ loading: true, error: null });
     try {
       const params = {

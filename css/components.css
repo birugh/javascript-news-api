@@ -149,18 +149,17 @@ nav strong {
     background-color: var(--white);
     flex-grow: 1;
     width: 100%;
-    max-width: 620px;
     height: 100%;
     border-radius: 16px;
-    border: 1px solid var(--sleet);
+    border: 1px solid var(--tangled_web);
     flex-direction: column;
     align-items: flex-end;
-    transition: box-shadow .5s ease-in-out;
+    transition: border .5s ease-in-out;
 }
 
 .input__container:hover {
-    border: 1px solid var(--dark_mineral);
-    box-shadow: 0px 0px 25px 5px rgba(0, 0, 0, 0.2);
+    border: 1px solid var(--off_black);
+    /* box-shadow: 0px 0px 25px 5px rgba(0, 0, 0, 0.2); */
 }
 
 .prompt_event {
