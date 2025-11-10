@@ -28,9 +28,9 @@ export class AbcNewsView {
               <h2><a href="${news.url}" target="_blank">${news.title}</a></h2>
               <p>${news.description || 'No description available'}</p>
               <ul class="info__list gray dp-flex dr-row content-start g-2">
-                <li>${news.source.name || 'Unknown'}</li>
+                <li>${news.source || 'Unknown'}</li>
                 <li class="seperator--vertical"></li>
-                <li>${this.formatDate(news.publishedAt)}</li>
+                <li>${news.publishedAt}</li>
                 <li class="seperator--vertical"></li>
                 <li>${news.author || 'Unknown'}</li>
               </ul>
@@ -63,17 +63,4 @@ export class AbcNewsView {
     `;
   }
 
-  formatDate(dateString) {
-    if (!dateString) return 'Unknown';
-    try {
-      const date = new Date(dateString);
-      return date.toLocaleDateString('en-US', {
-        month: 'short',
-        day: 'numeric',
-        year: 'numeric'
-      });
-    } catch {
-      return 'Unknown';
-    }
-  }
 }

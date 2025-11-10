@@ -16,8 +16,6 @@ export class AuthService extends BaseService {
             const data = await res.json();
 
             if (data.message && !data.accessToken) {
-                console.log(data.message);
-                
                 return { error: true, message: data.message };
             }
 

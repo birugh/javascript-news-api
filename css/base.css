@@ -36,6 +36,8 @@
     padding: 0;
 }
 
+
+
 ::selection {
     color: var(--veiling_waterfalls);
     background: var(--polar_glow);

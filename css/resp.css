@@ -1,7 +1,9 @@
 @media (max-width: 1399.98px) {
 
   /* TODO */
-
+  .info__list {
+    gap: 4px;
+  }
 }
 
 @media (max-width: 1199.98px) {
@@ -60,6 +62,10 @@
   .news__category--item h3,
   .source__items h3 {
     font-size: 24px;
+  }
+
+  .info__list {
+
   }
 }
 

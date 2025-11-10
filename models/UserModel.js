@@ -11,7 +11,4 @@ export class UserModel {
     this.refreshToken = rawData.refreshToken || null;
   }
 
-  get fullName() {
-    return `${this.firstName} ${this.lastName}`;
-  }
 }

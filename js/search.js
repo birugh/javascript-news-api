@@ -34,7 +34,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
     const search = new SearchController("#search-results", "#search-form");
-    // search.init();
+    search.init();
 
     document.addEventListener('click', (e) => {
         if (e.target.id === 'prev-btn') {

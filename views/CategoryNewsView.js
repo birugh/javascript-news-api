@@ -67,9 +67,9 @@ export class CategoryNewsView {
             </div>
             <div class="dp-flex dr-row content-between">
               <ul class="info__list gray dp-flex dr-row content-start g-2">
-                <li>${news.source?.name || 'Unknown'}</li>
+                <li>${news.source || 'Unknown'}</li>
                 <li class="seperator--vertical"></li>
-                <li>${this.formatDate(news.publishedAt)}</li>
+                <li>${news.publishedAt}</li>
                 <li class="seperator--vertical"></li>
                 <li>${news.author || 'Unknown'}</li>
               </ul>
@@ -96,12 +96,14 @@ export class CategoryNewsView {
 
     const selected = items[0];
     const others = items.slice(1, 5);
+    console.log(items);
+    
 
     return `
       <div class="col-4 col-lg-6 col-md-12">
         <div class="news__category--selected">
           <span>${categoryName}</span>
-          <img class="w-full" src="${selected.urlToImage || 'https://placehold.co/500x500'}" alt="${selected.title}">
+          <img class="w-full" src="${selected.urlToImage || 'https://placehold.co/500x500'}" onerror="this.onerror=null; this.src='https://placehold.co/500x500';" alt="${selected.title}">
           <h2><a href="${selected.url}" target="_blank">${selected.title}</a></h2>
         </div>
         <div class="news__category--others">
@@ -157,19 +159,5 @@ export class CategoryNewsView {
         </div>
       </div>
     `;
-  }
-
-  formatDate(dateString) {
-    if (!dateString) return 'Unknown';
-    try {
-      const date = new Date(dateString);
-      return date.toLocaleDateString('en-US', {
-        month: 'short',
-        day: 'numeric',
-        year: 'numeric'
-      });
-    } catch {
-      return 'Unknown';
-    }
   }
 }

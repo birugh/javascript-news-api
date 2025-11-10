@@ -56,7 +56,7 @@ export class CategoryNewsController {
       const healthData = await this.service.getTopHeadlines(healthParams);
 
       // science
-      const scienceParams = { category: "science", pageSize: 6 };
+      const scienceParams = { category: "science", pageSize: 7 };
       const scienceData = await this.service.getTopHeadlines(scienceParams);
 
       const categories = {

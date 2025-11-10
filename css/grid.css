@@ -14,12 +14,14 @@
 .grid-row {
     display: flex;
     flex-wrap: wrap;
+    /* untuk menyeimbangkan padding kolom agar total lebar baris tidak melampaui container. */
     margin-left: calc(var(--gutter) * -0.5);
     margin-right: calc(var(--gutter) * -0.5);
 }
 
 [class*="col-"] {
     flex: 1 0 0%;
+    /* menciptakan jarak antar kolom, setengah dari gutter masing-masing sisi. */
     padding-left: calc(var(--gutter) * 0.5);
     padding-right: calc(var(--gutter) * 0.5);
 }
