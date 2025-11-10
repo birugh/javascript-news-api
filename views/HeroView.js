@@ -38,7 +38,7 @@ export class HeroView {
                     <p>${mainArticle.description || 'No description available'}</p>
                   </div>
                   <ul class="info__list dp-flex dr-row content-start g-2">
-                    <li>${mainArticle.source.name || 'Unknown'}</li>
+                    <li>${mainArticle.source || 'Unknown'}</li>
                     <li class="seperator--vertical"></li>
                     <li>${this.formatDate(mainArticle.publishedAt)}</li>
                     <li class="seperator--vertical"></li>
@@ -59,7 +59,7 @@ export class HeroView {
                 <img src="${article.urlToImage || 'https://placehold.co/180x200'}" onerror="this.onerror=null; this.src='https://placehold.co/180x200';" alt="${article.title}">
                 <div class="dp-flex dr-column content-between pbt-2">
                   <ul class="info__list dp-flex dr-row content-start g-2">
-                    <li>${article.source.name || 'Unknown'}</li>
+                    <li>${article.source || 'Unknown'}</li>
                     <li class="seperator--vertical"></li>
                     <li>${this.formatDate(article.publishedAt)}</li>
                   </ul>
@@ -78,7 +78,7 @@ export class HeroView {
             ${bottomArticles.map(article => `
               <div class="hero__article--items dp-flex dr-column content-between">
                 <ul class="info__list dp-flex dr-row content-start g-2">
-                  <li>${article.source.name || 'Unknown'}</li>
+                  <li>${article.source || 'Unknown'}</li>
                   <li class="seperator--vertical"></li>
                   <li>${this.formatDate(article.publishedAt)}</li>
                   <li class="seperator--vertical"></li>

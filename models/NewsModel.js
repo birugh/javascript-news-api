@@ -1,6 +1,6 @@
 export class NewsModel {
     constructor(rawData) {
-        this.source = rawData.source || {};
+        this.source = this.truncateAtWord(rawData.source.name || 'Unknown', 10);
         this.author = this.truncateAtWord(rawData.author || 'Unknown', 15);
         this.title = this.truncateAtWord(rawData.title || '(No Title)', 50);
         this.description = this.truncateAtWord(rawData.description || '(No Description)', 120);
